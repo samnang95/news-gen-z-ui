@@ -1,11 +1,18 @@
 export const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5001/api';
 
+export const ENDPOINTS = {
+  news: process.env.NEXT_PUBLIC_ENDPOINT_NEWS || '/news',
+  categories: process.env.NEXT_PUBLIC_ENDPOINT_CATEGORIES || '/categories',
+  auth: process.env.NEXT_PUBLIC_ENDPOINT_AUTH || '/auth',
+  users: process.env.NEXT_PUBLIC_ENDPOINT_USERS || '/users',
+};
+
 export async function getNews(token?: string) {
   try {
     const headers: Record<string, string> = { 'Content-Type': 'application/json' };
     if (token) headers['Authorization'] = `Bearer ${token}`;
 
-    const res = await fetch(`${API_BASE_URL}/news`, { 
+    const res = await fetch(`${API_BASE_URL}${ENDPOINTS.news}`, { 
       cache: 'no-store',
       headers
     });
@@ -21,7 +28,7 @@ export async function getCategories(token?: string) {
     const headers: Record<string, string> = { 'Content-Type': 'application/json' };
     if (token) headers['Authorization'] = `Bearer ${token}`;
 
-    const res = await fetch(`${API_BASE_URL}/categories`, { 
+    const res = await fetch(`${API_BASE_URL}${ENDPOINTS.categories}`, { 
       cache: 'no-store',
       headers
     });
@@ -33,7 +40,7 @@ export async function getCategories(token?: string) {
 }
 
 export async function loginUser(data: any) {
-  return await fetch(`${API_BASE_URL}/auth/login`, {
+  return await fetch(`${API_BASE_URL}${ENDPOINTS.auth}/login`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(data),
@@ -41,7 +48,7 @@ export async function loginUser(data: any) {
 }
 
 export async function registerUser(data: any) {
-  return await fetch(`${API_BASE_URL}/auth/register`, {
+  return await fetch(`${API_BASE_URL}${ENDPOINTS.auth}/register`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(data),
@@ -49,7 +56,7 @@ export async function registerUser(data: any) {
 }
 
 export async function createNews(token: string, data: any) {
-  return await fetch(`${API_BASE_URL}/news`, {
+  return await fetch(`${API_BASE_URL}${ENDPOINTS.news}`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
     body: JSON.stringify(data),
@@ -57,14 +64,14 @@ export async function createNews(token: string, data: any) {
 }
 
 export async function deleteNews(token: string, id: string) {
-  return await fetch(`${API_BASE_URL}/news/${id}`, {
+  return await fetch(`${API_BASE_URL}${ENDPOINTS.news}/${id}`, {
     method: 'DELETE',
     headers: { 'Authorization': `Bearer ${token}` }
   });
 }
 
 export async function createCategory(token: string, data: any) {
-  return await fetch(`${API_BASE_URL}/categories`, {
+  return await fetch(`${API_BASE_URL}${ENDPOINTS.categories}`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
     body: JSON.stringify(data),
@@ -72,7 +79,7 @@ export async function createCategory(token: string, data: any) {
 }
 
 export async function deleteCategory(token: string, id: string) {
-  return await fetch(`${API_BASE_URL}/categories/${id}`, {
+  return await fetch(`${API_BASE_URL}${ENDPOINTS.categories}/${id}`, {
     method: 'DELETE',
     headers: { 'Authorization': `Bearer ${token}` }
   });
@@ -83,7 +90,7 @@ export async function getAllUsers(token?: string) {
     const headers: Record<string, string> = { 'Content-Type': 'application/json' };
     if (token) headers['Authorization'] = `Bearer ${token}`;
 
-    const res = await fetch(`${API_BASE_URL}/users`, { 
+    const res = await fetch(`${API_BASE_URL}${ENDPOINTS.users}`, { 
       cache: 'no-store',
       headers
     });
