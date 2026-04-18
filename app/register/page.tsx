@@ -52,7 +52,7 @@ export default function Register() {
               required
               value={username}
               onChange={(e) => setUsername(e.target.value)}
-              className="w-full bg-black/50 border border-white/5 rounded-[1.5rem] px-6 py-4 text-white focus:outline-none focus:border-emerald-500/50 focus:ring-1 focus:ring-emerald-500/50 transition-all placeholder:text-zinc-600 hover:border-white/10 shadow-inner"
+              className="w-full bg-black/50 border border-white/5 rounded-1.5rem px-6 py-4 text-white focus:outline-none focus:border-emerald-500/50 focus:ring-1 focus:ring-emerald-500/50 transition-all placeholder:text-zinc-600 hover:border-white/10 shadow-inner"
               placeholder="neo_journalist"
             />
           </div>
@@ -64,7 +64,7 @@ export default function Register() {
               required
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full bg-black/50 border border-white/5 rounded-[1.5rem] px-6 py-4 text-white focus:outline-none focus:border-emerald-500/50 focus:ring-1 focus:ring-emerald-500/50 transition-all placeholder:text-zinc-600 hover:border-white/10 shadow-inner"
+              className="w-full bg-black/50 border border-white/5 rounded-1.5rem px-6 py-4 text-white focus:outline-none focus:border-emerald-500/50 focus:ring-1 focus:ring-emerald-500/50 transition-all placeholder:text-zinc-600 hover:border-white/10 shadow-inner"
               placeholder="you@example.com"
             />
           </div>
@@ -76,14 +76,14 @@ export default function Register() {
               required
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full bg-black/50 border border-white/5 rounded-[1.5rem] px-6 py-4 text-white focus:outline-none focus:border-emerald-500/50 focus:ring-1 focus:ring-emerald-500/50 transition-all placeholder:text-zinc-600 hover:border-white/10 shadow-inner"
+              className="w-full bg-black/50 border border-white/5 rounded-1.5rem px-6 py-4 text-white focus:outline-none focus:border-emerald-500/50 focus:ring-1 focus:ring-emerald-500/50 transition-all placeholder:text-zinc-600 hover:border-white/10 shadow-inner"
               placeholder="••••••••"
             />
           </div>
 
           <button 
             type="submit"
-            className="w-full bg-linear-to-r from-emerald-600 to-teal-600 text-white font-bold py-4 rounded-[1.5rem] mt-4 hover:opacity-90 hover:scale-[1.02] active:scale-95 transition-all shadow-[0_0_20px_rgba(52,211,153,0.4)] hover:shadow-[0_0_30px_rgba(52,211,153,0.6)]"
+            className="w-full bg-linear-to-r from-emerald-600 to-teal-600 text-white font-bold py-4 rounded-1.5rem mt-4 hover:opacity-90 hover:scale-[1.02] active:scale-95 transition-all shadow-[0_0_20px_rgba(52,211,153,0.4)] hover:shadow-[0_0_30px_rgba(52,211,153,0.6)]"
           >
             Sign Up
           </button>
