@@ -170,7 +170,7 @@ export default function Dashboard() {
           )}
 
           {activeTab === 'Articles' && (
-            <div className="bg-white rounded-[1.5rem] shadow-sm border border-zinc-100 overflow-hidden mt-8">
+            <div className="bg-white rounded-1.5rem shadow-sm border border-zinc-100 overflow-hidden mt-8">
                <div className="p-6 border-b border-zinc-100 flex justify-between items-center bg-white">
                  <h2 className="text-lg font-bold text-zinc-700">Articles Data Table</h2>
                  <button onClick={() => setShowModal(true)} className="bg-blue-600 hover:bg-blue-700 text-white text-sm font-bold px-5 py-2.5 rounded-xl shadow-[0_5px_15px_-5px_rgba(37,99,235,0.4)] transition-colors flex items-center">
