@@ -6,7 +6,7 @@ export default function Hero() {
       {/* Background Image - User should place genz_hero_bg.png in public/ */}
       <div className="absolute inset-0 bg-zinc-900 z-0">
         <Image 
-          src="/genz_hero_bg.png" 
+          src="https://images.unsplash.com/photo-1495020689067-958852a7765e?q=80&w=2069&auto=format&fit=crop" 
           alt="Hero Background" 
           fill 
           priority
