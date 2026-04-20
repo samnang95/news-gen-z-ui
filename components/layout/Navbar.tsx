@@ -6,6 +6,7 @@ export default async function Navbar() {
   // Read the cookie via the Next 15 Async feature
   const cookieStore = await cookies();
   const token = cookieStore.get('token')?.value;
+  const role = cookieStore.get('userRole')?.value;
 
   // Pass the token securely into the API request!
   const categories = await getCategories(token);
@@ -43,9 +44,15 @@ export default async function Navbar() {
             </Link>
           )}
           
-          <Link href={token ? "/dashboard" : "/register"} className="bg-white text-black px-6 py-2.5 rounded-full text-sm font-black tracking-wide hover:bg-purple-100 hover:scale-105 active:scale-95 transition-all shadow-[0_0_15px_rgba(255,255,255,0.4)]">
-            {token ? "Dashboard" : "Subscribe"}
-          </Link>
+          {role === 'admin' ? (
+            <Link href="/dashboard" className="bg-white text-black px-6 py-2.5 rounded-full text-sm font-black tracking-wide hover:bg-purple-100 hover:scale-105 active:scale-95 transition-all shadow-[0_0_15px_rgba(255,255,255,0.4)]">
+              Dashboard
+            </Link>
+          ) : !token ? (
+            <Link href="/register" className="bg-white text-black px-6 py-2.5 rounded-full text-sm font-black tracking-wide hover:bg-purple-100 hover:scale-105 active:scale-95 transition-all shadow-[0_0_15px_rgba(255,255,255,0.4)]">
+              Subscribe
+            </Link>
+          ) : null}
         </div>
       </div>
     </header>

@@ -22,7 +22,9 @@ export default function Login() {
       }
       // Set token deeply into local storage AND cookies so Server components detect the user!
       localStorage.setItem("token", data.token);
+      localStorage.setItem("userRole", data.user.role);
       document.cookie = `token=${data.token}; path=/; max-age=86400; SameSite=Lax`;
+      document.cookie = `userRole=${data.user.role}; path=/; max-age=86400; SameSite=Lax`;
       
       window.location.href = "/"; // Force a full reload so Server Components see cookies/tokens if we add them later
     } catch (err) {

@@ -134,6 +134,14 @@ export async function deleteCategory(token: string, id: string) {
   });
 }
 
+export async function updateCategory(token: string, id: string, data: any) {
+  return await fetch(`${API_BASE_URL}${ENDPOINTS.categories}/${id}`, {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
+    body: JSON.stringify(data),
+  });
+}
+
 export async function getAllUsers(token?: string) {
   try {
     const headers: Record<string, string> = { 'Content-Type': 'application/json' };
